@@ -1,0 +1,23 @@
+.licorne {
+    padding: 1rem;
+    position: relative;
+    min-width: 300px;
+}
+
+.licorne + .licorne {
+    margin-top: 1rem;
+}
+
+.badge {
+    position: absolute;
+    top: 39px;
+    left: 22px;
+}
+.vote {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    bottom: 1rem;
+    right: 1rem;
+}

@@ -1,0 +1,35 @@
+<h2>Enregistrer une licorne</h2>
+
+<form (ngSubmit)="enregistrer()" [formGroup]="form">
+
+    <div class="form-element">
+        <label for="nom">Nom de la licorne :</label>
+        <div class="form-control">
+            <input id="nom" type="text" formControlName="nom" />
+        </div>
+    </div>
+
+    <div class="form-element">
+        <label for="description">Description :</label>
+        <div class="form-control">
+            <textarea id="description" formControlName="description"></textarea>
+            <div class="description-limit">
+                @let caracteres = 100 - (form.get('description')?.value?.length || 0);
+                @if (caracteres > 0) {
+                    Caractère(s) restant(s) : {{caracteres}}
+                }
+                @else if (caracteres === 0) {
+                    Limite atteinte !
+                }
+                @else {
+                    Limite dépassée de {{-caracteres}} caractère(s) !
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="form-actions">
+        <button type="submit" [disabled]="form.invalid">Enregistrer</button>
+        <button type="reset">Effacer</button>
+    </div>
+</form>

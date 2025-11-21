@@ -1,0 +1,10 @@
+@if (licorne(); as l) {
+    <div class="media">
+        <img class="figure" src="/images/unicorn.png" alt="Licorne" />
+        <div class="body">
+            <b>{{l.nom}}</b>
+            <span>Score : {{l?.score}}</span>
+            <a [routerLink]="['/licornes', l.id]">Voir la fiche</a>
+        </div>
+    </div>
+}

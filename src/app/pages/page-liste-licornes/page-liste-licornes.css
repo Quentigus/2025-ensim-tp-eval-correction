@@ -1,0 +1,9 @@
+.licorne {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.licorne + .licorne {
+    margin-top: 1rem;
+}

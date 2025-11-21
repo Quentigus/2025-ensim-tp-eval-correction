@@ -1,0 +1,15 @@
+.media {
+    display: inline-flex;
+}
+
+.media .figure {
+    width: 3rem;
+    height: 3rem;
+    margin-right: 1rem;
+}
+
+.media .body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}

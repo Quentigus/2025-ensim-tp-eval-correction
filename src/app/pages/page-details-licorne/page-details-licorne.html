@@ -1,0 +1,33 @@
+<h2>
+    {{licorne?.nom}}
+    @switch (position) {
+        @case (1) {🥇}
+        @case (2) {🥈}
+        @case (3) {🥉}
+    }
+</h2>
+
+<dl>
+    <dt>Identifiant</dt>
+    <dd>{{licorne?.id}}</dd>
+
+    <dt>Nom</dt>
+    <dd>{{licorne?.nom}}</dd>
+
+    <dt>Score</dt>
+    <dd>{{licorne?.score}}</dd>
+
+    <dt>Description</dt>
+    @if (licorne?.description) {
+        <dd>{{licorne?.description}}</dd>
+    }
+    @else {
+        <dd>Aucune présentation</dd>
+    }
+
+</dl>
+
+<div class="vote">
+    Votez pour cette licorne :
+    <app-vote (plus)="modifierScore(1)" (moins)="modifierScore(-1)"></app-vote>
+</div>

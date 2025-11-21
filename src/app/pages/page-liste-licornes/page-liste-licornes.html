@@ -1,0 +1,9 @@
+<h2>Liste des licornes ( {{licornes.length}} )</h2>
+
+@for (l of licornes; track l.id) {
+<div class="licorne border p-1">
+    <app-licorne [licorne]="l"></app-licorne>
+
+    <app-vote (plus)="modifierScore(l, 1)" (moins)="modifierScore(l, -1)"></app-vote>
+</div>
+}

@@ -1,0 +1,20 @@
+<h2>Bienvenue sur Unicorn Farm</h2>
+
+<h3>👑 Classement des plus belles 👑</h3>
+
+@for (l of top3; track l.id; let i = $index) {
+    <div class="licorne border">
+        <span class="badge">
+            @switch (i + 1) {
+                @case (1) {🥇}
+                @case (2) {🥈}
+                @case (3) {🥉}
+            }
+        </span>
+        <app-licorne [licorne]="l"></app-licorne>
+        <div class="vote">
+            Voter :
+            <app-vote (plus)="modifierScore(l, 1)" (moins)="modifierScore(l, -1)"></app-vote>
+        </div>
+    </div>
+}
