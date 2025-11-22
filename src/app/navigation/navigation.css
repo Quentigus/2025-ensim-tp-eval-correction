@@ -39,3 +39,14 @@ nav a.active {
     font-weight: bold;
     text-decoration: underline;
 }
+
+.icons8 {
+    font-size: 0.9rem;
+    margin-left: auto;
+    font-style: italic;
+    opacity: 0.9;
+}
+.icons8 a {
+    color: white;
+    text-decoration: underline;
+}
