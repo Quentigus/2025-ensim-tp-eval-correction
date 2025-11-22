@@ -1,11 +1,12 @@
+import { KeyValuePipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, ReactiveFormsModule, ValidationErrors, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Licornes } from '../../licornes';
 
 @Component({
     selector: 'app-page-enregistrement',
-    imports: [ReactiveFormsModule],
+    imports: [ReactiveFormsModule, KeyValuePipe],
     templateUrl: './page-enregistrement.html',
     styleUrl: './page-enregistrement.css',
 })
@@ -19,7 +20,7 @@ export class PageEnregistrement {
 
     /** Formulaire d'enregistrement */
     protected form = this.fb.group({
-        nom: this.fb.control('', [Validators.required, Validators.minLength(5), Validators.maxLength(30)]),
+        nom: this.fb.control('', [Validators.required, Validators.minLength(5), Validators.maxLength(30), this.bloquerCaracteresSpeciaux]),
         description: this.fb.control('', [Validators.maxLength(100)]),
     });
 
@@ -41,5 +42,19 @@ export class PageEnregistrement {
             // Redirection vers la page de détails de la licorne
             this.router.navigate(['/licornes', id]);
         }
+    }
+
+    private bloquerCaracteresSpeciaux(control: AbstractControl<string>): ValidationErrors | null {
+        const nonAutorises = `&@~#|(){}[]?/!%$;<>€="`.split('');
+        const contientNonAutorises = nonAutorises.filter((char) => control.value.includes(char));
+        if (contientNonAutorises.length > 0) {
+            return {
+                unauthorizedToken: {
+                    count: contientNonAutorises.length,
+                    list: contientNonAutorises
+                }
+            };
+        }
+        return null;
     }
 }

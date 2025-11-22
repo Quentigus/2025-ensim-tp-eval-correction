@@ -1,3 +1,7 @@
+.sort-actions {
+    margin-bottom: 1rem;
+}
+
 .licorne {
     display: flex;
     align-items: center;
@@ -6,4 +10,11 @@
 
 .licorne + .licorne {
     margin-top: 1rem;
+}
+
+button.active {
+    border-color: var(--accent);
+    background-color: var(--accent);
+    color: white;
+    cursor: default;
 }

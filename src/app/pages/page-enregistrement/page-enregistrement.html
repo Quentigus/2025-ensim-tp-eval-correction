@@ -6,6 +6,33 @@
         <label for="nom">Nom de la licorne :</label>
         <div class="form-control">
             <input id="nom" type="text" formControlName="nom" />
+            @if (form.get('nom')?.errors) {
+                <div class="errors">
+                    <ul>
+                        @for (err of form.get('nom')?.errors | keyvalue; track err) {
+                            <li>
+                                @switch (err.key) {
+                                    @case ('required') {
+                                        Le champ est requis
+                                    }
+                                    @case ('minlength') {
+                                        Le nom doit faire au moins {{err.value.requiredLength}} caractère(s) (actuellement {{err.value.actualLength}})
+                                    }
+                                    @case ('maxlength') {
+                                        Le nom doit faire au maximum {{err.value.requiredLength}} caractère(s) (actuellement {{err.value.actualLength}})
+                                    }
+                                    @case ('unauthorizedToken') {
+                                        Le nom contient {{err.value.count}} caractère(s) non autorisé(s) ( {{err.value.list.join(' ')}} )
+                                    }
+                                    @default {
+                                        Le champ est invalide
+                                    }
+                                }
+                            </li>
+                        }
+                    </ul>
+                </div>
+            }
         </div>
     </div>
 
@@ -13,18 +40,32 @@
         <label for="description">Description :</label>
         <div class="form-control">
             <textarea id="description" formControlName="description"></textarea>
-            <div class="description-limit">
+            @if (form.get('description')?.valid) {
                 @let caracteres = 100 - (form.get('description')?.value?.length || 0);
-                @if (caracteres > 0) {
-                    Caractère(s) restant(s) : {{caracteres}}
-                }
-                @else if (caracteres === 0) {
-                    Limite atteinte !
-                }
-                @else {
-                    Limite dépassée de {{-caracteres}} caractère(s) !
-                }
-            </div>
+                <div class="description-limit">
+                    @if (caracteres > 0) {
+                        Caractère(s) restant(s) : {{caracteres}}
+                    }
+                    @else if (caracteres === 0) {
+                        Limite atteinte !
+                    }
+                </div>
+            }
+            @else {
+                <div class="errors">
+                    <ul>
+                        @for (err of form.get('description')?.errors | keyvalue; track err) {
+                            <li>
+                                @switch (err.key) {
+                                    @case ('maxlength') {
+                                        La description doit faire au maximum {{err.value.requiredLength}} caractère(s) (actuellement {{err.value.actualLength}})
+                                    }
+                                }
+                            </li>
+                        }
+                    </ul>
+                </div>
+            }
         </div>
     </div>
 

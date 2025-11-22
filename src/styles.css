@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 html {
+    --accent: #3D4F91;
     --primary: #4B89BF;
     --secondary: #94C6F2;
     --secondary-light: #D8E8F2;
@@ -18,6 +19,12 @@ html, body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
     color: var(--text-color);
+}
+
+html, body, main {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
 }
 
 

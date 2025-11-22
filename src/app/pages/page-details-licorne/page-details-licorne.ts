@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Licorne } from '../../licorne';
 import { Licornes, VoteType } from '../../licornes';
 import { Vote } from '../../vote/vote';
@@ -15,6 +15,8 @@ export class PageDetailsLicorne implements OnInit {
     private readonly licornesService = inject(Licornes);
     /** Route actuelle pour récupérer les paramètres */
     private readonly activatedRoute = inject(ActivatedRoute);
+    /** Router pour la navigation */
+    private readonly router = inject(Router);
 
     /** Licorne affichée */
     protected licorne: Licorne | undefined;
@@ -31,8 +33,13 @@ export class PageDetailsLicorne implements OnInit {
                 .getAllLicornes()
                 .find((l) => l.id === pathId);
 
-            // Récupération de sa position dans le classement
-            this.recupererPosition();
+            if (this.licorne) {
+                // Récupération de sa position dans le classement
+                this.recupererPosition();
+            }
+            else {
+                this.router.navigate(['/not-found']);
+            }
         });
     }
 
