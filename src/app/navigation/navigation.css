@@ -28,3 +28,14 @@ header h1 {
 nav a {
     margin-left: 1rem;
 }
+
+.icons8 {
+    font-size: 0.9rem;
+    margin-left: auto;
+    font-style: italic;
+    opacity: 0.9;
+}
+.icons8 a {
+    color: white;
+    text-decoration: underline;
+}
