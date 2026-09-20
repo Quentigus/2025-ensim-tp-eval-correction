@@ -7,7 +7,6 @@ export type VoteType = -1 | 1;
     providedIn: 'root',
 })
 export class Licornes {
-
     /** Liste des licornes */
     private licornes: Licorne[] = [
         { id: 1, nom: 'Licorne paladine', description: '', score: 10 },
@@ -32,9 +31,7 @@ export class Licornes {
     getPosition(id: number): number {
         const top3 = this.getAllLicornes().sort((a, b) => b.score - a.score);
         const licorne = this.licornes.find((l) => l.id === id);
-        return (licorne)
-            ? top3.indexOf(licorne) + 1
-            : -1;
+        return licorne ? top3.indexOf(licorne) + 1 : -1;
     }
 
     /**
@@ -51,9 +48,7 @@ export class Licornes {
 
     /** Génère un nouvel identifiant unique pour une nouvelle licorne */
     genererId(): number {
-        return this.licornes.length > 0
-            ? Math.max(...this.licornes.map((l) => l.id)) + 1
-            : 1;
+        return this.licornes.length > 0 ? Math.max(...this.licornes.map((l) => l.id)) + 1 : 1;
     }
 
     /**

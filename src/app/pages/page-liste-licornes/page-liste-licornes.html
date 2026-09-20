@@ -1,13 +1,25 @@
 <h2>Liste des licornes ( {{licornes.length}} )</h2>
 
 <div class="sort-actions">
-    <button [class.active]="sortBy === 'name'" [routerLink]="['.']" [queryParams]="{sort: 'name'}">Tri par nom</button>
-    <button [class.active]="sortBy === 'score'" [routerLink]="['.']" [queryParams]="{sort: 'score'}">Tri par score</button>
+    <button
+        [class.active]="sortBy === 'name'"
+        [routerLink]="['.']"
+        [queryParams]="{sort: 'name'}">
+        Tri par nom
+    </button>
+    <button
+        [class.active]="sortBy === 'score'"
+        [routerLink]="['.']"
+        [queryParams]="{sort: 'score'}">
+        Tri par score
+    </button>
 </div>
 
 @for (l of licornes; track l.id) {
-    <div class="licorne border p-1">
-        <app-licorne [licorne]="l"></app-licorne>
-        <app-vote (plus)="modifierScore(l, 1)" (moins)="modifierScore(l, -1)"></app-vote>
-    </div>
+<div class="licorne border p-1">
+    <app-licorne [licorne]="l"></app-licorne>
+    <app-vote
+        (plus)="modifierScore(l, 1)"
+        (moins)="modifierScore(l, -1)"></app-vote>
+</div>
 }

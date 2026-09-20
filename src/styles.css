@@ -1,18 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
 html {
-    --accent: #3D4F91;
-    --primary: #4B89BF;
-    --secondary: #94C6F2;
-    --secondary-light: #D8E8F2;
-    --text-color: #0D0D0D;
+    --accent: #3d4f91;
+    --primary: #4b89bf;
+    --secondary: #94c6f2;
+    --secondary-light: #d8e8f2;
+    --text-color: #0d0d0d;
 }
 
 @font-face {
-    font-family: "JellyParty";
-    src: url("../public/fonts/JellyParty.ttf") format("truetype");
+    font-family: 'JellyParty';
+    src: url('../public/fonts/JellyParty.ttf') format('truetype');
 }
 
-html, body {
+html,
+body {
     margin: 0;
     padding: 0;
 
@@ -21,14 +22,20 @@ html, body {
     color: var(--text-color);
 }
 
-html, body, main {
+html,
+body,
+main {
     overflow: hidden;
     width: 100%;
     height: 100%;
 }
 
-
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: 'JellyParty', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: var(--primary);
     margin-top: 0;
@@ -56,7 +63,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 button {
-    padding: .35rem .7rem;
+    padding: 0.35rem 0.7rem;
     color: var(--primary);
     background-color: var(--secondary-light);
     border: 1px solid var(--primary);

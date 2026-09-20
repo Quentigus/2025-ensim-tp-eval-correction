@@ -1,5 +1,5 @@
 header {
-    background-color: #4B89BF;
+    background-color: #4b89bf;
     color: white;
     padding: 1rem;
     display: flex;
@@ -10,7 +10,7 @@ header {
 }
 
 header h1 {
-    padding-left: .5rem;
+    padding-left: 0.5rem;
     margin: 0;
 }
 
@@ -20,7 +20,7 @@ header a {
 }
 
 header a:hover {
-    color: #D8E8F2;
+    color: #d8e8f2;
     text-decoration: underline;
 }
 

@@ -29,15 +29,12 @@ export class PageDetailsLicorne implements OnInit {
             const pathId = parseInt(params['id']);
 
             // Récupération de la licorne correspondante
-            this.licorne = this.licornesService
-                .getAllLicornes()
-                .find((l) => l.id === pathId);
+            this.licorne = this.licornesService.getAllLicornes().find((l) => l.id === pathId);
 
             if (this.licorne) {
                 // Récupération de sa position dans le classement
                 this.recupererPosition();
-            }
-            else {
+            } else {
                 this.router.navigate(['/not-found']);
             }
         });
@@ -58,8 +55,6 @@ export class PageDetailsLicorne implements OnInit {
 
     /** Récupère la position dans le classement de la licorne affichée */
     private recupererPosition() {
-        this.position = (this.licorne)
-            ? this.licornesService.getPosition(this.licorne.id)
-            : -1;
+        this.position = this.licorne ? this.licornesService.getPosition(this.licorne.id) : -1;
     }
 }

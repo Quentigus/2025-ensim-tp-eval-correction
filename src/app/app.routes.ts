@@ -6,24 +6,24 @@ import { PageDetailsLicorne } from './pages/page-details-licorne/page-details-li
 import { PageEnregistrement } from './pages/page-enregistrement/page-enregistrement';
 
 export const routes: Routes = [
-  {
-    path: '',
-    component: PageAccueil
-  },
-  {
-    path: 'enregistrer',
-    component: PageEnregistrement
-  },
-  {
-    path: 'licornes',
-    component: PageListeLicornes
-  },
-  {
-    path: 'licornes/:id',
-    component: PageDetailsLicorne
-  },
-  {
-    path: '**',
-    component: PageError
-  }
+    {
+        path: '',
+        component: PageAccueil,
+    },
+    {
+        path: 'enregistrer',
+        component: PageEnregistrement,
+    },
+    {
+        path: 'licornes',
+        component: PageListeLicornes,
+    },
+    {
+        path: 'licornes/:id',
+        component: PageDetailsLicorne,
+    },
+    {
+        path: '**',
+        component: PageError,
+    },
 ];
