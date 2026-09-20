@@ -1,0 +1,34 @@
+{
+    "name": "TP Noté 2025 - Unicorn App",
+    "postCreateCommand": "npm ci",
+    "postStartCommand": "npx ng s",
+    "customizations": {
+        "codespaces": {
+            "openFiles": ["README.md"]
+        },
+        "vscode": {
+            "extensions": [
+                "esbenp.prettier-vscode",
+                "PKief.material-icon-theme",
+                "hnw.vscode-auto-open-markdown-preview",
+                "Angular.ng-template"
+            ],
+            "settings": {
+                "security.workspace.trust.enabled": false,
+                "workbench.secondarySideBar.defaultVisibility": "hidden",
+                "editor.defaultFormatter": "esbenp.prettier-vscode",
+                "editor.formatOnSave": true,
+                "editor.formatOnSaveMode": "file",
+                "files.autoSave": "afterDelay",
+                "editor.tabSize": 4
+            }
+        }
+    },
+    "portsAttributes": {
+        "4200": {
+            "label": "Application",
+            "onAutoForward": "openPreview"
+        }
+    },
+    "forwardPorts": [4200]
+}
