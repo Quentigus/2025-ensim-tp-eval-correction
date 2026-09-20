@@ -35,7 +35,7 @@ export class PageEnregistrement {
                 id, // Identifiant généré (équivalent à "id: id")
                 score: 0,
                 nom: this.form.value.nom!, // ! pour indiquer que la valeur n'est pas null
-                description: this.form.value.description! // ! pour indiquer que la valeur n'est pas null
+                description: this.form.value.description!, // ! pour indiquer que la valeur n'est pas null
             });
 
             // Redirection vers la page de détails de la licorne

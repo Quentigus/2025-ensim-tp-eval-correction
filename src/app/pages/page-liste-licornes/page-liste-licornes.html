@@ -4,6 +4,8 @@
 <div class="licorne border p-1">
     <app-licorne [licorne]="l"></app-licorne>
 
-    <app-vote (plus)="modifierScore(l, 1)" (moins)="modifierScore(l, -1)"></app-vote>
+    <app-vote
+        (plus)="modifierScore(l, 1)"
+        (moins)="modifierScore(l, -1)"></app-vote>
 </div>
 }

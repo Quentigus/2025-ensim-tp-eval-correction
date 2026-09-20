@@ -15,9 +15,7 @@ export class PageListeLicornes {
     private readonly licornesService = inject(Licornes);
 
     /** Liste des licornes triées par nom */
-    protected licornes = this.licornesService
-        .getAllLicornes()
-        .sort((a, b) => a.nom.localeCompare(b.nom));
+    protected licornes = this.licornesService.getAllLicornes().sort((a, b) => a.nom.localeCompare(b.nom));
 
     /**
      * Modifie le score d'une licorne
